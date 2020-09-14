@@ -1,0 +1,25 @@
+<div class="pt-3">
+  <div class="container">
+    <button class="btn btn-success" [routerLink]="['add']">ADD</button>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td><a [routerLink]="[book.id]">{{book.title}}</a></td>
+        <td>{{book.author}}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['edit',book.id]">edit</button>
+          <button class="btn btn-danger ml-3" (click)="delete(book.id)">delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
